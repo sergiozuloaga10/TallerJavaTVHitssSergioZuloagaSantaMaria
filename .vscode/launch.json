@@ -1,0 +1,113 @@
+
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Restaurante",
+            "request": "launch",
+            "mainClass": "ejercicios.Restaurante",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Numeros",
+            "request": "launch",
+            "mainClass": "ciclos.Numeros",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Bucle",
+            "request": "launch",
+            "mainClass": "ejercicios.Bucle",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Ejercicio2For",
+            "request": "launch",
+            "mainClass": "ejercicios.Ejercicio2For",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Pedir20Notas",
+            "request": "launch",
+            "mainClass": "ejercicios.Pedir20Notas",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "ProgramaManejoDeNombres",
+            "request": "launch",
+            "mainClass": "ejercicios.ProgramaManejoDeNombres",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Cadenas",
+            "request": "launch",
+            "mainClass": "entradas.Cadenas",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Entrada",
+            "request": "launch",
+            "mainClass": "entradas.Entrada",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Caracteres",
+            "request": "launch",
+            "mainClass": "flujo.Caracteres",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "Condicional",
+            "request": "launch",
+            "mainClass": "flujo.Condicional",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "CondicionalMultiple",
+            "request": "launch",
+            "mainClass": "flujo.CondicionalMultiple",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "InicioSesion",
+            "request": "launch",
+            "mainClass": "flujo.InicioSesion",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "SentenciaSwitch",
+            "request": "launch",
+            "mainClass": "flujo.SentenciaSwitch",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
+            "name": "TiposPrimitivos",
+            "request": "launch",
+            "mainClass": "sintaxis.TiposPrimitivos",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        }
+    ]
+}
