@@ -7,6 +7,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ImprimirX",
+            "request": "launch",
+            "mainClass": "ejercicios.ImprimirX",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_ed9921a1"
+        },
+        {
+            "type": "java",
+            "name": "NumerosAleatorios",
+            "request": "launch",
+            "mainClass": "arreglos.NumerosAleatorios",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_ed9921a1"
+        },
+        {
+            "type": "java",
+            "name": "OcurrenciasArreglo",
+            "request": "launch",
+            "mainClass": "ejercicios.OcurrenciasArreglo",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_ed9921a1"
+        },
+        {
+            "type": "java",
             "name": "Restaurante",
             "request": "launch",
             "mainClass": "ejercicios.Restaurante",
