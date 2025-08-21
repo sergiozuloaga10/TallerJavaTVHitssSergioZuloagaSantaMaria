@@ -7,6 +7,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestMain",
+            "request": "launch",
+            "mainClass": "pooTV.test.TestMain",
+            "projectName": "TallerJavaTVHitssSergioZuloagaSantaMaria_954b8a5d"
+        },
+        {
+            "type": "java",
             "name": "ImprimirX",
             "request": "launch",
             "mainClass": "ejercicios.ImprimirX",
