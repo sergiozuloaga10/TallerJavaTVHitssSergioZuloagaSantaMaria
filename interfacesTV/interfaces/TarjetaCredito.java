@@ -1,8 +1,6 @@
-package impl;
+package interfaces;
 
-import interfaces.MetodoPago;
-
-public class TarjetaCredito implements MetodoPago {
+public final class TarjetaCredito implements MetodoPago {
 
     @Override
     public void pago(double cantidad) {

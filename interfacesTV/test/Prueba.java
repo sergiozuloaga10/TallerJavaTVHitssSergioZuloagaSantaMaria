@@ -3,9 +3,9 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-import impl.Paypal;
-import impl.TarjetaCredito;
 import interfaces.MetodoPago;
+import interfaces.Paypal;
+import interfaces.TarjetaCredito;
 
 public class Prueba {
     public static void main(String[] args) {
