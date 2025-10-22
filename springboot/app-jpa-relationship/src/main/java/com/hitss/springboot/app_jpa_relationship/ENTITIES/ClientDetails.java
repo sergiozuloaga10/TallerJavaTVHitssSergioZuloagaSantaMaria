@@ -1,35 +1,27 @@
 package com.hitss.springboot.app_jpa_relationship.ENTITIES;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "addresses")
+@Table(name = "clients_details")
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class Address {
+public class ClientDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(length =  100, nullable = false)
-    private String street;
-
-    private Integer number;
-
-    public Address(String street, Integer number) {
-        this.street = street;
-        this.number = number;
+    private boolean premium;
+    private Integer points;
+    public ClientDetails(boolean premium, Integer points) {
+        this.premium = premium;
+        this.points = points;
     }
 
     

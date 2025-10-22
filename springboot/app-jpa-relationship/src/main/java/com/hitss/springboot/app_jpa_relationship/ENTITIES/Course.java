@@ -1,35 +1,35 @@
 package com.hitss.springboot.app_jpa_relationship.ENTITIES;
 
-import jakarta.annotation.Generated;
+import org.hibernate.annotations.Collate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "addresses")
+@Table(name = "courses")
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class Address {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length =  100, nullable = false)
-    private String street;
+    @Column(length = 50, nullable = false)
+    private String name;
 
-    private Integer number;
+    @Column(length = 100, nullable = false)
+    private String instructor;
 
-    public Address(String street, Integer number) {
-        this.street = street;
-        this.number = number;
+    public Course(String name, String instructor) {
+        this.name = name;
+        this.instructor = instructor;
     }
 
     

@@ -1,5 +1,8 @@
 package com.hitss.springboot.app_jpa_relationship;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +11,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hitss.springboot.app_jpa_relationship.ENTITIES.Address;
 import com.hitss.springboot.app_jpa_relationship.ENTITIES.Client;
+import com.hitss.springboot.app_jpa_relationship.ENTITIES.ClientDetails;
 import com.hitss.springboot.app_jpa_relationship.ENTITIES.Invoice;
+import com.hitss.springboot.app_jpa_relationship.repositories.ClientDetailsRepository;
 import com.hitss.springboot.app_jpa_relationship.repositories.ClientRepository;
 import com.hitss.springboot.app_jpa_relationship.repositories.InvoiceRepository;
 
@@ -22,6 +28,9 @@ public class AppJpaRelationshipApplication implements CommandLineRunner{
 	@Autowired
 	private InvoiceRepository invoiceRepository;
 
+	@Autowired
+	private ClientDetailsRepository clientDetailsRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(AppJpaRelationshipApplication.class, args);
 	}
@@ -30,7 +39,25 @@ public class AppJpaRelationshipApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Iniciando...");
-		manyToOneFindByIdClient();
+		//oneToManyFindByIdClient();
+		//oneToOneFindByIdClient();
+	}
+
+	@Transactional
+	private void oneToOneFindByIdClient(){
+		Long id = 1L;
+		Optional<Client> optionalClient = clientRepository.findById(id);
+		optionalClient.ifPresentOrElse(c -> {
+			ClientDetails clientDetails = new ClientDetails(false, 1000);
+			clientDetailsRepository.save(clientDetails);
+			c.setClientDetails(clientDetails);
+
+			Client client =clientRepository.save(c);
+			System.out.println(client);
+		}, 
+		() -> System.out.println("No existe el cliente con el id: " + id));
+
+
 	}
 
 	@Transactional
@@ -53,6 +80,41 @@ public class AppJpaRelationshipApplication implements CommandLineRunner{
 			invoiceRepository.save(invoice);
 		}, 
 		() -> System.out.println("No hay un cliente con el id: " + id));
+	}
+
+	@Transactional
+	private void oneToManyFindByIdClient(){
+		Long id = 2L;
+		Optional<Client> optionalClient = clientRepository.findById(id);
+
+		optionalClient.ifPresentOrElse(c -> {
+			Address address = new Address("Calle Hidalgo", 4);
+			c.setAddresses(Arrays.asList(address));
+			Client client = clientRepository.save(c);
+			System.out.println(client);
+		}, 
+		() -> System.out.println("No existe un cliente con el id: " + id));
+	}
+
+	@Transactional
+	private void oneToMany(){
+		Client client = new Client("Susana", "Gonzaga");
+		Address address1 = new Address("Hipodromo", 123);
+		Address address2 = new Address("Independencia", 56);
+
+		// client.getAddresses().add(address1);
+		// client.getAddresses().add(address2);
+
+		// List<Address> addresses = new ArrayList<>();
+		// addresses.add(address1);
+		// addresses.add(address2);
+		// client.setAddresses(addresses);
+
+		// client.setAddresses(Arrays.asList(address1, address2));
+		client.setAddresses(List.of(address1, address2));
+
+		Client clientDB = clientRepository.save(client);
+		System.out.println(clientDB);
 	}
 
 }
