@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Placa de video RTX 3060",
+    "price": 1087.5
+  },
+  {
+    "id": 2,
+    "name": "Abrigo invierno Nike",
+    "price": 3987.5
+  },
+  {
+    "id": 3,
+    "name": "Monitor Sammsung 24 pulgadas",
+    "price": 1812.5
+  },
+  {
+    "id": 4,
+    "name": "Motherboard AMD",
+    "price": 5147.5
+  },
+  {
+    "id": 5,
+    "name": "Disco Duro Kingston 2TB",
+    "price": 2537.5
+  }
+]

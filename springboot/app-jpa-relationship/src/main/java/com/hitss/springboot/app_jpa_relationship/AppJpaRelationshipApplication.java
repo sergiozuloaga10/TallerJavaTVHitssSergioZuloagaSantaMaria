@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,10 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hitss.springboot.app_jpa_relationship.ENTITIES.Address;
 import com.hitss.springboot.app_jpa_relationship.ENTITIES.Client;
 import com.hitss.springboot.app_jpa_relationship.ENTITIES.ClientDetails;
+import com.hitss.springboot.app_jpa_relationship.ENTITIES.Course;
 import com.hitss.springboot.app_jpa_relationship.ENTITIES.Invoice;
+import com.hitss.springboot.app_jpa_relationship.ENTITIES.Student;
 import com.hitss.springboot.app_jpa_relationship.repositories.ClientDetailsRepository;
 import com.hitss.springboot.app_jpa_relationship.repositories.ClientRepository;
 import com.hitss.springboot.app_jpa_relationship.repositories.InvoiceRepository;
+import com.hitss.springboot.app_jpa_relationship.repositories.StudentRepository;
 
 @SpringBootApplication
 public class AppJpaRelationshipApplication implements CommandLineRunner{
@@ -25,6 +29,9 @@ public class AppJpaRelationshipApplication implements CommandLineRunner{
 	@Autowired
 	private ClientRepository clientRepository;
 	
+	@Autowired
+	private StudentRepository studentRepository;
+
 	@Autowired
 	private InvoiceRepository invoiceRepository;
 
@@ -41,6 +48,22 @@ public class AppJpaRelationshipApplication implements CommandLineRunner{
 		System.out.println("Iniciando...");
 		//oneToManyFindByIdClient();
 		//oneToOneFindByIdClient();
+	}
+
+	@Transactional
+	private void manyToMany(){
+		Student student1 = new Student("Sergio", "Zuloaga");
+		Student student2 = new Student("Eloy", "Sanchez");
+
+		Course course1 = new Course("Taller de Java", "Juan Santiago");
+		Course course2 = new Course("Taller de IA", "Bingo Salmoran");
+
+		student1.setCourses(Set.of(course1, course2, course1));
+		student2.setCourses(Set.of(course2));
+
+		studentRepository.saveAll(List.of(student1, student2));
+		System.out.println(student1);
+		System.out.println(student2);
 	}
 
 	@Transactional
