@@ -1,6 +1,8 @@
 package com.hitss.springboot.apprest_crud_swagger.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hitss.springboot.apprest_crud_swagger.models.Product;
 import com.hitss.springboot.apprest_crud_swagger.services.ProductService;
+import com.hitss.springboot.apprest_crud_swagger.utils.Util;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/products")
@@ -53,20 +58,29 @@ public class ProductController {
     }
 
     @PostMapping("/psuccess")
-    public ResponseEntity<Product> create(@RequestBody Product product){
+    public ResponseEntity<?> create(@Valid @RequestBody Product product, 
+                    BindingResult result){
+        if(result.hasFieldErrors()){
+            return Util.validation(result);
+        }
         return ResponseEntity.status(HttpStatus.CREATED)
                             .body(productService.save(product));
     }
 
+    
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Product product){
+    public ResponseEntity<?> update(@PathVariable Long id, @Valid BindingResult result,
+                     @RequestBody Product product){
+        if(result.hasFieldErrors()){
+            return Util.validation(result);
+        }
         Optional<Product> optional = productService.update(id, product);
         if(optional.isPresent()){
             return ResponseEntity.status(HttpStatus.CREATED).body(optional.orElseThrow());
         }
         return ResponseEntity.notFound().build();
     }
-
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id, @RequestBody Product product){
         Optional<Product> optional = productService.delete(id);
@@ -75,5 +89,6 @@ public class ProductController {
         }
         return ResponseEntity.notFound().build();
     }
-
+    
+    
 }
