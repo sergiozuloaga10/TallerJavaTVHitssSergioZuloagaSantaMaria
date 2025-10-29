@@ -2,6 +2,9 @@ package com.hitss.springboot.apprest_crud_swagger.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.hitss.springboot.apprest_crud_swagger.validation.ExistByUsername;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,9 +35,11 @@ public class User {
     @Column(unique = true)
     @NotBlank
     @Size(min = 5, max = 20)
+    @ExistByUsername(message = " ya existe")
     private String username;
 
     @NotBlank
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @ManyToMany
